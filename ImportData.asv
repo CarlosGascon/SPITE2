@@ -34,9 +34,9 @@ for i  = 1 : m                              % Iterate over every system in Targe
         Exoplanet = Exoplanets(pindex);
         
         if(isnan(Exoplanet.I))                      % Check if inclination is unknown
-           max = cos(asin((Exoplanet.pmass * Mjup) / (0.08 * Msun)));      % Maximum inclination value considering planet mass below 0.08 sun's Mass
-           Exoplanet.I = acos((2 * rand - 1) * max);                       % Generate random inclination
-           if(Exoplanet.type == 'Msini')                                   % Check if Exoplanet is 'Msini' type
+           max = cos(asin((Exoplanet.pmass * Mjup) / (0.0)))
+           Exoplanet.I = acos(2 * rand - 1);        % Generate random inclination
+           if(Exoplanet.type == 'Msini')            % Check if Exoplanet is 'Msini' type
               Exoplanet.pmass =  Exoplanet.pmass / sin(Exoplanet.I);       % Update planet mass
            end
         end

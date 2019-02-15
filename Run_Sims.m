@@ -29,7 +29,7 @@ for i = 1 : length(Targets)             % Iterate over every system target
     Stability(i, :) = {System, NImageable, NStable, ...
                        (NStable / Norb) * 100, (NStable / NImageable) * 100};% Store results in stability cell matrix
     
-    fprintf('%i%%\n',(cont/(length(Targets)) * 100))
+    fprintf('%i%%\n',floor((cont/(length(Targets)) * 100)))
     cont = cont + 1;
 end
 end

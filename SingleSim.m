@@ -37,12 +37,12 @@ else
         InitialDist(i) = norm(PlanetPos - StarInitPos);    % Calculate and store planet intial distance from star
     end
 
-    dt = min([Exo.per]) / 10;                   % Time step a tenth of the minimum orbital period of the system   
+    dt = min([Exo.per]) / 9;                    % Time step a ninth of the minimum orbital period of the system   
     t_in = [dt; checktime; dtoutput];           % Rebound time parameters            
     SimTime = 0;                                % Initialize SimTime
     Stable = 1;                                 % Initialize Stability flag
 
-    while Stable == 1 && SimTime <= YearsSim * YearDays
+    while Stable == 1 && SimTime <= (YearsSim * YearDays)
 
         [t_out, y_out, dy_out] = reboundmex(t_in, y_in, dy_in, mus); % Run n body integration with rebound
         y_in = y_out(:, end);                                        % Calculate new initial position

@@ -25,7 +25,7 @@ end
 Constants; 
 load('Exoplanets.mat')          % Load Exoplanets.mat
 [m, ~] = size(TargetList);      % Read TargetList size
-rng('shuffle');                 % Shuffle seed for random generation
+
 
 for i  = 1 : m                              % Iterate over every system in TargetList
     for j = 1 : length(TargetList{i, 2})    % Iterate over specified planets for every system

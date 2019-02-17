@@ -26,7 +26,7 @@ TargetList2 = {'11 Com', ['b']
                'HATS-4', ['b']
                'HATS-5', ['b']};  
 
-Norb = 3;
+Norb = 4;
 
 YearsSim = 10e2;
 

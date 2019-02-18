@@ -27,13 +27,18 @@ TargetList2 = {'11 Com', ['b']
                'HATS-5', ['b']};  
 TargetList3 = {'47 UMa', ['b', 'c', 'd']};
 
-Norb = 4;
+TargetList4 = {'47 UMa', ['b', 'd']
+               'HD 141399', ['b', 'c', 'd'] 
+               '55 Cnc', ['b', 'c', 'f']
+               'HD 27894',['b', 'c']};
 
-YearsSim = 10e2;
+Norb = 50;
 
-Ncores = 1;
+YearsSim = 1e7;
 
-Nexo = 0;
+Ncores = 16;
+
+Nexo = 1;
 
 %% Run Simulation and Output
 

@@ -16,5 +16,5 @@ r2d = 360 / (2 * pi);   % radians to degrees
 d2r = (2 * pi) / 360;   % degrees to radians
 
                  
-checktime = 365e1;               % Indicate checktime
+checktime = 365e5;               % Indicate checktime
 dtoutput = checktime / 10;       % Indicate dtoutput

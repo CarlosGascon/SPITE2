@@ -38,7 +38,6 @@ if Imageable == 0
     Stable = 0;
 else 
     Imageable = 1;
-    save('Exo', 'Exo');
     [y_in, dy_in, mus] = InitialCond(Exo);      % Calculate system's initial conditions
 
     InitialDist = zeros(1, n);                  % Initialize planets distance from star
@@ -48,7 +47,7 @@ else
         InitialDist(i) = norm(PlanetPos - StarInitPos);    % Calculate and store planet intial distance from star
     end
 
-    dt = min([Exo.per]) / 9;                    % Time step a ninth of the minimum orbital period of the system   
+    dt = min([Exo.per]) / 11;                    % Time step a ninth of the minimum orbital period of the system   
     t_in = [dt; checktime; dtoutput];           % Rebound time parameters            
     SimTime = 0;                                % Initialize SimTime
     Stable = 1;                                 % Initialize Stability flag

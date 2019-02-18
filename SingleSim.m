@@ -1,4 +1,4 @@
-function [Stable, Imageable] = SingleSim(KnownExo, YearsSim)
+function [Stable, Imageable] = SingleSim(KnownExo, Nexo, YearsSim)
 % Description: The following function performs one simulation for a
 % specific system. Reading the information from the known exoplanets of the
 % particular system, a new random exoplanet is generated. The entire system
@@ -17,17 +17,28 @@ function [Stable, Imageable] = SingleSim(KnownExo, YearsSim)
     % - Stable: Boolean indicating if the simulated case is stable or not.
     
 Constants;            % Load constant values    
+Imageable = 1;
 m = length(KnownExo); % Number of known exoplanets
-n = m + 1;            % Total number of planets (Known and Random)
+n = m + Nexo;            % Total number of planets (Known and Random)
 
-RandomExo = GenerateExo(KnownExo);              % Generate random exoplanet
-if RandomExo.a == 0
-    Stable = 0;
+if Nexo > 0
     Imageable = 0;
+    for i = 1 : Nexo
+        RandomExos(i) = GenerateExo(KnownExo);              % Generate random exoplanet
+        if RandomExos(i).a > 0
+            Imageable = 1;
+        end
+    end
+    Exo = [RandomExos, KnownExo];                % Create vector containing known and random exoplanet
+else
+    Exo = KnownExo;
+end
+
+if Imageable == 0
+    Stable = 0;
 else 
     Imageable = 1;
-    Exo = [RandomExo, KnownExo];                % Create vector containing known and random exoplanet
-
+    save('Exo', 'Exo');
     [y_in, dy_in, mus] = InitialCond(Exo);      % Calculate system's initial conditions
 
     InitialDist = zeros(1, n);                  % Initialize planets distance from star

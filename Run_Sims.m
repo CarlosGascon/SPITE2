@@ -1,4 +1,4 @@
-function [Stability] = Run_Sims(TargetList, Norb, YearsSim, Ncores)
+function [Stability] = Run_Sims(TargetList, Nexo, Norb, YearsSim, Ncores)
 % Description: The following function runs several simulations (Norb) for
 % each Target system. 
 % Input: 
@@ -20,7 +20,7 @@ for i = 1 : length(Targets)             % Iterate over every system target
     Target = Targets{i};                % Select target system to be studied
     
     parfor (j = 1 : Norb, Ncores)                       % Start Parallel pool
-        [StableOrbs(j), ImageableOrbs(j)] = SingleSim(Target, YearsSim);    % Calculate stability for particular case
+        [StableOrbs(j), ImageableOrbs(j)] = SingleSim(Target, Nexo, YearsSim);    % Calculate stability for particular case
     end
     
     System = Targets{i}(1).system;                      % Get system name

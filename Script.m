@@ -25,6 +25,7 @@ TargetList2 = {'11 Com', ['b']
                'GJ 876', ['b']
                'HATS-4', ['b']
                'HATS-5', ['b']};  
+TargetList3 = {'47 UMa', ['b', 'c', 'd']};
 
 Norb = 4;
 
@@ -32,6 +33,8 @@ YearsSim = 10e2;
 
 Ncores = 1;
 
+Nexo = 0;
+
 %% Run Simulation and Output
 
-Stability = Run_Sims(TargetList1, Norb, YearsSim, Ncores);
+Stability = Run_Sims(TargetList3, Nexo, Norb, YearsSim, Ncores);
